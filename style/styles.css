@@ -1,0 +1,66 @@
+
+body {
+  font-family: 'Noto Sans';
+  font-weight: 400;
+  font-size: 32px;
+  padding: var(--space-2); 
+}
+
+.hour-cell {
+  width: 200px;
+  height: 200px;
+
+  .sun {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+  }
+
+  .sky {
+    padding: var(--space-1);
+  }
+
+  .thin-line {
+    height: 2px;
+  }
+
+  .mid-line {
+    height: 4px;
+  }
+
+  .thick-line {
+    height: 6px;
+  }
+
+  .time {
+    text-align: center;
+  }
+}
+
+.combo-152 {
+  background-color: var(--vandar-poels-blue);
+
+  .sun {
+    background-color: var(--orange-yellow);
+  }
+
+  .sky {
+    background-color: var(--pale-kings-blue);
+    color: var(--brown);
+  }
+
+  .cloud-line {
+    background-color: var(--seashell-pink);
+  }
+
+  .ground {
+    background-color: var(--dusky-green);
+    color: var(--seashell-pink);    
+  }
+
+  .time {
+    background-color: var(--eosine-pink);
+    color: var(--brown);
+  }
+}

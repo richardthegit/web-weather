@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Weather</title>
+    <link rel='stylesheet' href='style/reset.css'>
+    <link rel='stylesheet' href='style/layout.css'>
+    <link rel='stylesheet' href='style/colors.css'>
+    <link rel='stylesheet' href='style/styles.css'>
+
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined' rel='stylesheet' />
+    <link href='https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap' rel='stylesheet'>
+  </head>
+  <body class='combo-152'>
+    <div id='forecast-container' class='flex-row flex-gap-2'>
+    </div>
+
+    <template id='hourly-card-template'>
+      <div class='hour-cell flex-col flex-gap-2'>
+        <div class='sky'>
+          <div class='sun'></div>
+
+          <div class='right'>
+            <span class='material-symbols-outlined'>cloud</span>
+            <span class='cloud-high'></span>%
+            <div class='thin-line cloud-line'></div>
+          </div>
+
+          <div class='center'>
+            <span class='material-symbols-outlined'>cloud</span>
+            <span class='cloud-mid'></span>%
+            <div class='mid-line cloud-line'></div>
+          </div>
+
+          <div>
+            <span class='material-symbols-outlined'>cloud</span>
+            <span class='cloud-low'></span>%
+            <div class='thick-line cloud-line'></div>
+          </div>
+
+          <div class='right mt-3'>
+            <span class='material-symbols-outlined'>rainy</span>
+            <span class='precip'></span>mm
+          </div>
+        </div>
+
+        <div class='ground'>
+          <div>
+            <span class='material-symbols-outlined'>device_thermostat</span> 
+            <span class='temp'></span>°
+          </div>
+          
+          <div class='right'>
+            <span class='material-symbols-outlined'>cool_to_dry</span>
+            <span class='humid'></span>%
+          </div>
+
+          <div>
+            <span class='material-symbols-outlined'>air</span>
+            <span class='windspeed'></span>m/s
+          </div>
+        </div>
+
+        <div class='time'></div>
+      </div>
+    </template>
+
+    <script src='code.js'></script>
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      const lat = urlParams.get('lat');
+      const lon = urlParams.get('lon');
+      const container = document.getElementById('forecast-container');
+      const template = document.getElementById('hourly-card-template');
+ 
+      function populate(hourlyData) {  
+        // Clear any existing content
+        container.replaceChildren();
+
+        // Create a fragment to batch DOM updates for speed
+        const fragment = document.createDocumentFragment();
+        var count = 6;
+
+        hourlyData.forEach(item => {
+          count --;
+          if (count >= 0) {
+            const clone = template.content.cloneNode(true);
+            clone.querySelector('.cloud-high').textContent = item.cloud_high;
+            clone.querySelector('.cloud-mid').textContent = item.cloud_mid;
+            clone.querySelector('.cloud-low').textContent = item.cloud_low;
+            clone.querySelector('.precip').textContent = item.precip;
+            clone.querySelector('.temp').textContent = item.temp;
+            clone.querySelector('.humid').textContent = item.humid;
+            clone.querySelector('.windspeed').textContent = item.wind_10m;
+            clone.querySelector('.time').textContent = item.time;
+            fragment.appendChild(clone);
+          }
+        });
+
+        // Append everything to the DOM in a single write operation
+        container.appendChild(fragment);
+      }
+
+      function update() {
+        fetchWeather(lat, lon).then(data => populate(data));
+      }
+
+      const interval = new ManagedInterval(60, update);
+    </script>
+  </body>
+</html>

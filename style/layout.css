@@ -1,0 +1,148 @@
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+.mt-1 {
+  margin-top: var(--space-1);
+}
+
+.mt-2 {
+  margin-top: var(--space-2);
+}
+
+.mt-3 {
+  margin-top: var(--space-3);
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+/* An image as a immediate child of flex container using 'align-items: stretch'
+ * will potentially render stretched as one side stretches to fill, and the other
+ * uses the image's natural size. This is inconsistent across browsers. To avoid
+ * trouble, avoid images as direct children (wrap them in a div), and use this 
+ * class to have them stretch to fit in a sensible manner. */
+.flex-img {
+  width: 100%;
+}
+
+/* How items are arrange in the primary axis direction. */
+.flex-start {
+  justify-content: start;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.flex-end {
+  justify-content: end;
+}
+
+.flex-space-between {
+  justify-content: space-between;
+}
+
+.flex-space-around {
+  justify-content: space-around;
+}
+
+/* How items are arranged in the cross-axis direction. */
+.flex-cross-start {
+  align-items: flex-start;
+}
+
+.flex-cross-center {
+  align-items: center;
+}
+
+.flex-cross-end {
+  align-items: flex-end;
+}
+
+.flex-cross-stretch {
+  align-items: stretch;
+}
+
+.flex-cross-baseline {
+  align-items: baseline;
+}
+
+.flex-cross-self-end {
+  align-self: flex-end;
+}
+
+/* How lines in a wrapping container are spaced. */
+.flex-content-stretch {
+  align-content: stretch;
+}
+
+.flex-gap-1 {
+  gap: var(--space-1);
+}
+
+.flex-gap-2 {
+  gap: var(--space-2);
+}
+
+.flex-gap-3 {
+  gap: var(--space-3);
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-grow {
+  flex-grow: 10;
+}
+
+.flex-grow-1 {
+  flex-grow: 10;
+}
+
+.flex-grow-2 {
+  flex-grow: 20;
+}
+
+.flex-grow-3 {
+  flex-grow: 30;
+}
+
+.flex-shrink {
+  flex-shrink: 10;
+}
+
+.flex-shrink-0 {
+  flex-shrink: 0;
+}
+
+.flex-shrink-1 {
+  flex-shrink: 10;
+}
+
+.flex-shrink-2 {
+  flex-shrink: 20;
+}
+
+.flex-shrink-3 {
+  flex-shrink: 30;
+}
+
