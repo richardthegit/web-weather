@@ -107,17 +107,28 @@
       function update() {
         fetchWeather(lat, lon).then(data => populate(data));
       }
-
       const interval = new ManagedInterval(60, update);
 
-      // Simple script to request edge-to-edge fullscreen on click/tap
+      /* Go full-screen on tap. */
       function goFullscreen() {
           const elem = document.documentElement;
           if (elem.requestFullscreen) {
               elem.requestFullscreen();
           }
+
       }
       document.addEventListener('click', goFullscreen, { once: true });
+
+      /* Aquire the wake lock to prevent the screen going dim. */
+      let wakeLock = null;
+      async function requestWakeLock() {
+        try {
+          wakeLock = await navigator.wakeLock.request('screen');
+        } catch (err) {
+          console.log(`Wake Lock Error: ${err.name}, ${err.message}`);
+        }
+      }
+      requestWakeLock();
     </script>
   </body>
 </html>
