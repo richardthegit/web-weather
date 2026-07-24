@@ -1,5 +1,13 @@
 
 /**
+ * Return 'arg' if it's not undefined, otherwise 'def'.
+ */
+function defaultArg(arg, def) {
+  return typeof arg !== 'undefined' ? arg : def;
+}
+
+
+/**
  * Return the forecast for the specified location. This is unpacked such that an
  * array of dictionaries is returned.
  */
@@ -53,12 +61,31 @@ async function fetchWeather(latitude, longitude) {
   });
 }
 
+function qs(element, className) {
+  return element.querySelector(className);
+}
 
 /**
- * Return 'arg' if it's not undefined, otherwise 'def'.
+ * Set the element to the specified numeric value, and add a weight 
+ * style appropriate to its value:
+ *  value <= thinMax = thin
+ *  value <= medMax = medium
+ *  value > medMax = thick
  */
-function defaultArg(arg, def) {
-  return typeof arg !== 'undefined' ? arg : def;
+function setVariableWeight(element, value, thinMax, medMax, suffix) {
+  suffix = defaultArg(suffix, '');
+  element.textContent = `${value}${suffix}`;
+  element.className = '';
+  
+  if (value <= thinMax) {
+    element.className = 'fw-1';
+  }
+  else if (value <= medMax) {
+    element.className = 'fw-2';
+  }
+  else {
+    element.className = 'fw-3';
+  }
 }
 
 

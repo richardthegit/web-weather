@@ -2,7 +2,9 @@
 <html lang='en'>
   <head>
     <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='viewport' content='width=1200, initial-scale=1.0'>
+    <meta http-equiv='refresh' content='3600'>
+
     <title>Weather</title>
     <link rel='stylesheet' href='style/reset.css'>
     <link rel='stylesheet' href='style/layout.css'>
@@ -15,44 +17,49 @@
     <link href='https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap' rel='stylesheet'>
   </head>
   <body class='combo-152'>
-    <div id='forecast-container' class='flex-row flex-gap-2'>
+    <div class='flex-row flex-gap-2'>
+      <div class='flex-grow-1'></div>
+      <div id='forecast-container' class='flex-row flex-gap-2'></div>
+      <div class='flex-grow-1'></div>
     </div>
 
     <template id='hourly-card-template'>
       <div class='hour-cell flex-col flex-gap-2'>
+        <div class='time subcell fw-3'></div>
+
         <div class='sky subcell'>
 
-          <div class='right'>
+          <div>
             <span class='material-symbols-outlined'>cloud</span>
-            <span class='cloud-high'></span>%
-            <div class='thin-line cloud-line'></div>
-          </div>
-
-          <div class='center'>
-            <span class='material-symbols-outlined'>cloud</span>
-            <span class='cloud-mid'></span>%
-            <div class='mid-line cloud-line'></div>
+            <span class='cloud-high'></span>
+            <div class='thin-line cloud-line mb-2'></div>
           </div>
 
           <div>
             <span class='material-symbols-outlined'>cloud</span>
-            <span class='cloud-low'></span>%
-            <div class='thick-line cloud-line'></div>
+            <span class='cloud-mid'></span>
+            <div class='mid-line cloud-line mb-2'></div>
+          </div>
+
+          <div>
+            <span class='material-symbols-outlined'>cloud</span>
+            <span class='cloud-low'></span>
+            <div class='thick-line cloud-line mb-2'></div>
           </div>
 
           <div class='right mt-3'>
             <span class='material-symbols-outlined'>rainy</span>
-            <span class='precip'></span>mm
+            <span class='precip'></span>
           </div>
         </div>
 
         <div class='ground subcell'>
-          <div>
+          <div class='mb-2'>
             <span class='material-symbols-outlined'>device_thermostat</span> 
             <span class='temp'></span>°
           </div>
           
-          <div class='right'>
+          <div class='right mb-2'>
             <span class='material-symbols-outlined'>cool_to_dry</span>
             <span class='humid'></span>%
           </div>
@@ -62,8 +69,6 @@
             <span class='windspeed'></span>m/s
           </div>
         </div>
-
-        <div class='time subcell'></div>
       </div>
     </template>
 
@@ -87,14 +92,14 @@
           count --;
           if (count >= 0) {
             const clone = template.content.cloneNode(true);
-            clone.querySelector('.cloud-high').textContent = item.cloud_high;
-            clone.querySelector('.cloud-mid').textContent = item.cloud_mid;
-            clone.querySelector('.cloud-low').textContent = item.cloud_low;
-            clone.querySelector('.precip').textContent = item.precip;
-            clone.querySelector('.temp').textContent = item.temp;
-            clone.querySelector('.humid').textContent = item.humid;
-            clone.querySelector('.windspeed').textContent = item.wind_10m;
-            clone.querySelector('.time').textContent = item.time;
+            setVariableWeight(qs(clone, '.cloud-high'), item.cloud_high, 10, 50, '%');
+            setVariableWeight(qs(clone, '.cloud-mid'), item.cloud_mid, 10, 50, '%');
+            setVariableWeight(qs(clone, '.cloud-low'), item.cloud_low, 10, 50, '%');
+            setVariableWeight(qs(clone, '.precip'), item.precip, 0.2, 0.5, 'mm');
+            qs(clone, '.temp').textContent = item.temp;
+            qs(clone, '.humid').textContent = item.humid;
+            qs(clone, '.windspeed').textContent = item.wind_10m;
+            qs(clone, '.time').textContent = item.time;
             fragment.appendChild(clone);
           }
         });
