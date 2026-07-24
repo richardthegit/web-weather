@@ -2,7 +2,7 @@
 body {
   font-family: 'Noto Sans';
   font-weight: 400;
-  font-size: 26px;
+  font-size: 27px;
   padding: var(--space-2); 
 }
 
@@ -20,7 +20,7 @@ body {
 
 .hour-cell {
   flex: 1;
-  
+
   .subcell {
     padding: var(--space-1);
   }
