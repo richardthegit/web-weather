@@ -2,23 +2,25 @@
 body {
   font-family: 'Noto Sans';
   font-weight: 400;
-  font-size: 32px;
+  font-size: 28px;
   padding: var(--space-2); 
 }
 
 .hour-cell {
   width: 200px;
-  height: 200px;
+
+  .subcell {
+    padding: var(--space-1);
+  }
 
   .sun {
     display: inline-block;
-    width: 48px;
-    height: 48px;
-    border-radius: 24px;
+    width: 32px;
+    height: 32px;
+    border-radius: 16px;
   }
 
   .sky {
-    padding: var(--space-1);
   }
 
   .thin-line {
