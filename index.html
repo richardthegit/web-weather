@@ -17,11 +17,7 @@
     <link href='https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap' rel='stylesheet'>
   </head>
   <body class='combo-152'>
-    <div class='flex-row flex-gap-2'>
-      <div class='flex-grow-1'></div>
-      <div id='forecast-container' class='flex-row flex-gap-2'></div>
-      <div class='flex-grow-1'></div>
-    </div>
+    <div id='forecast-container' class='flex-row flex-gap-2'></div>
 
     <template id='hourly-card-template'>
       <div class='hour-cell flex-col flex-gap-2'>
@@ -54,12 +50,12 @@
         </div>
 
         <div class='ground subcell'>
-          <div class='mb-2'>
+          <div class='mb-1'>
             <span class='material-symbols-outlined'>device_thermostat</span> 
             <span class='temp'></span>°
           </div>
           
-          <div class='right mb-2'>
+          <div class='right mb-1'>
             <span class='material-symbols-outlined'>cool_to_dry</span>
             <span class='humid'></span>%
           </div>

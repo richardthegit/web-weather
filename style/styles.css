@@ -19,8 +19,8 @@ body {
 }
 
 .hour-cell {
-  width: 180px;
-
+  flex: 1;
+  
   .subcell {
     padding: var(--space-1);
   }
