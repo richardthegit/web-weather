@@ -113,6 +113,15 @@
       }
 
       const interval = new ManagedInterval(60, update);
+
+      // Simple script to request edge-to-edge fullscreen on click/tap
+      function goFullscreen() {
+          const elem = document.documentElement;
+          if (elem.requestFullscreen) {
+              elem.requestFullscreen();
+          }
+      }
+      document.addEventListener('click', goFullscreen, { once: true });
     </script>
   </body>
 </html>
