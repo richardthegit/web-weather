@@ -7,7 +7,7 @@ body {
 }
 
 .fw-1 {
-  font-weight: 300;
+  font-weight: 200;
 }
 
 .fw-2 {
@@ -15,7 +15,7 @@ body {
 }
 
 .fw-3 {
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .hour-cell {
@@ -23,6 +23,8 @@ body {
 
   .subcell {
     padding: var(--space-1);
+    padding-left: var(--space-2);    
+    padding-right: var(--space-2);    
   }
 
   .sun {
@@ -48,12 +50,13 @@ body {
   }
 
   .time {
+    font-size: 32px;
     text-align: center;
   }
 }
 
 .combo-152 {
-  background-color: var(--pale-kings-blue);
+  background-color: var(--brown);
 
   .time {
     background-color: var(--orange-yellow);
