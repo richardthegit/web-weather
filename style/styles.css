@@ -3,7 +3,11 @@ body {
   font-family: 'Noto Sans';
   font-weight: 400;
   font-size: 27px;
-  padding: var(--space-2); 
+  padding: var(--space-2);
+}
+
+* {
+  transition: background-color 1s ease, color 1s ease;
 }
 
 .fw-1 {
@@ -23,15 +27,8 @@ body {
 
   .subcell {
     padding: var(--space-1);
-    padding-left: var(--space-2);    
-    padding-right: var(--space-2);    
-  }
-
-  .sun {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    border-radius: 16px;
+    padding-left: var(--space-2);
+    padding-right: var(--space-2);
   }
 
   .sky {
@@ -63,10 +60,6 @@ body {
     color: var(--vandar-poels-blue);
   }
 
-  .sun {
-    background-color: var(--orange-yellow);
-  }
-
   .sky {
     background-color: var(--vandar-poels-blue);
     color: var(--seashell-pink);
@@ -78,6 +71,73 @@ body {
 
   .ground {
     background-color: var(--dusky-green);
-    color: var(--seashell-pink);    
+    color: var(--seashell-pink);
   }
+}
+
+.combo-149 {
+  background-color: var(--neutral-gray);
+
+  .time {
+    background-color: var(--spectrum-red);
+    color: var(--white);
+  }
+
+  .sky {
+    background-color: var(--white);
+    color: var(--black);
+  }
+
+  .cloud-line {
+    background-color: var(--spectrum-red);
+  }
+
+  .ground {
+    background-color: var(--white);
+    color: var(--black);
+  }
+}
+
+.combo-188 {
+  background-color: var(--eosine-pink);
+  color: var(--black);
+
+  .time {
+    background-color: var(--white);
+  }
+
+  .sky {
+    background-color: var(--white);
+  }
+
+  .cloud-line {
+    background-color: var(--calamine-blue);
+  }
+
+  .ground {
+    background-color: var(--white);
+  }  
+}
+
+.combo-21 {
+  background-color: var(--dull-violet-black);
+  color: var(--dull-violet-black);
+
+  .time {
+    background-color: var(--helvetia-blue);
+    color: var(--sulfur-yellow);
+  }
+
+  .sky {
+    background-color: var(--sulfur-yellow);
+  }
+
+  .cloud-line {
+    background-color: var(--spinel-red);
+  }
+
+  .ground {
+    background-color: var(--raw-sienna);
+    color: var(--sulfur-yellow);
+  }  
 }

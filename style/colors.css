@@ -1,6 +1,10 @@
 :root {
-  /* Combo 152 */
+  /* Shared */
+  --black: #111314;
+  --white: #ffffff;
   --eosine-pink: #f37f94;
+
+  /* Combo 152 */
   --seashell-pink: #fdd4bd;
   --brown: #7c4226;
   --orange-yellow: #fcb315;
@@ -8,4 +12,18 @@
   --dark-medici-blue: #547076;
   --vandar-poels-blue: #064f6e;
   --dusky-green: #004f46;
+
+  /* Combo 149. */
+  --neutral-gray: #b6bfc1;
+  --spectrum-red: #e31f26;
+
+  /* Combo 188. */
+  --calamine-blue: #78cdd0;
+
+  /* Combo 21. */
+  --sulfur-yellow: #f5ecc2;
+  --helvetia-blue: #005b8d;
+  --dull-violet-black: #0d1c43;
+  --raw-sienna: #bb7125;
+  --spinel-red: #f27291;
 }

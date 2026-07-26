@@ -15,7 +15,7 @@
     <link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap' rel='stylesheet'>
   </head>
-  <body class='combo-152'>
+  <body class='combo-21'>
     <div id='forecast-container' class='flex-row flex-gap-2'></div>
 
     <template id='hourly-card-template'>
@@ -74,18 +74,20 @@
       const lon = urlParams.get('lon');
       const container = document.getElementById('forecast-container');
       const template = document.getElementById('hourly-card-template');
- 
+      const styles = ['combo-152', 'combo-149', 'combo-188', 'combo-21'];
+      var styleIndex = 0, minuteCount = 0;
+
       function populate(hourlyData) {  
         // Clear any existing content
         container.replaceChildren();
 
         // Create a fragment to batch DOM updates for speed
         const fragment = document.createDocumentFragment();
-        var count = 6;
+        var dayCount = 6;
 
         hourlyData.forEach(item => {
-          count --;
-          if (count >= 0) {
+          dayCount --;
+          if (dayCount >= 0) {
             const clone = template.content.cloneNode(true);
             setVariableWeight(qs(clone, '.cloud-high'), item.cloud_high, 10, 50, '%');
             setVariableWeight(qs(clone, '.cloud-mid'), item.cloud_mid, 10, 50, '%');
@@ -104,7 +106,17 @@
       }
 
       function update() {
-        fetchWeather(lat, lon).then(data => populate(data));
+        /* Change the style every few minutes. */
+        minuteCount ++;
+        if (minuteCount > 9) {
+          minuteCount = 0;
+          styleIndex = (styleIndex + 1) % styles.length;
+          document.body.className = styles[styleIndex];
+        }
+        else {
+          /* Only rebuild the doc when we're not animating between styles. */
+          fetchWeather(lat, lon).then(data => populate(data));
+        }
       }
       const interval = new ManagedInterval(60, update);
 
