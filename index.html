@@ -95,7 +95,8 @@
             setVariableWeight(qs(clone, '.precip'), item.precip, 0, 0.49, 'mm');
             qs(clone, '.temp').textContent = item.temp;
             qs(clone, '.humid').textContent = item.humid;
-            qs(clone, '.windspeed').textContent = item.wind_10m;
+            var wind = item.wind_10m;
+            qs(clone, '.windspeed').textContent = wind > 10 ? Math.round(wind) : wind;
             qs(clone, '.time').textContent = item.time;
             fragment.appendChild(clone);
           }
