@@ -3,22 +3,7 @@
   --black: #111314;
   --white: #ffffff;
   --eosine-pink: #f37f94;
-
-  /* Combo 152 */
-  --seashell-pink: #fdd4bd;
-  --brown: #7c4226;
-  --orange-yellow: #fcb315;
   --pale-kings-blue: #a7d4e4;
-  --dark-medici-blue: #547076;
-  --vandar-poels-blue: #064f6e;
-  --dusky-green: #004f46;
-
-  /* Combo 149. */
-  --neutral-gray: #b6bfc1;
-  --spectrum-red: #e31f26;
-
-  /* Combo 188. */
-  --calamine-blue: #78cdd0;
 
   /* Combo 21. */
   --sulfur-yellow: #f5ecc2;
@@ -26,4 +11,32 @@
   --dull-violet-black: #0d1c43;
   --raw-sienna: #bb7125;
   --spinel-red: #f27291;
+
+  /* Combo 88 */
+  --dark-soft-violet: #66629c;
+  --green: #489b6e;
+  --cinnamon-buff: #fdc57e;
+  --eugenia-red: #da525d;
+  --light-glaucous-blue: #a5c8d1;
+
+  /* Combo 149. */
+  --neutral-gray: #b6bfc1;
+  --spectrum-red: #e31f26;
+
+  /* Combo 152 */
+  --seashell-pink: #fdd4bd;
+  --brown: #7c4226;
+  --orange-yellow: #fcb315;
+  --dark-medici-blue: #547076;
+  --vandar-poels-blue: #064f6e;
+  --dusky-green: #004f46;
+
+  /* Combo 188. */
+  --calamine-blue: #78cdd0;
+
+  /* Combo 206 */
+  --cerulean-blue: #0093a5;
+  --peach-red: #f15a30;
+  --pinkish-cinnamon: #eeb480;
+  --turquoise-green: #b5decc;
 }

@@ -141,3 +141,49 @@ body {
     color: var(--sulfur-yellow);
   }  
 }
+
+.combo-88 {
+  background-color: var(--dark-soft-violet);
+  color: var(--white);
+
+  .time {
+    background-color: var(--eugenia-red);
+  }
+
+  .sky {
+    background-color: var(--light-glaucous-blue);
+    color: var(--black);
+  }
+
+  .cloud-line {
+    background-color: var(--dark-soft-violet);
+  }
+
+  .ground {
+    background-color: var(--green);
+    color: var(--white);
+  }  
+}
+
+.combo-206 {
+  background-color: var(--cerulean-blue);
+  color: var(--white);
+
+  .time {
+    background-color: var(--peach-red);
+  }
+
+  .sky {
+    background-color: var(--pale-kings-blue);
+    color: var(--black);
+  }
+
+  .cloud-line {
+    background-color: var(--cerulean-blue);
+  }
+
+  .ground {
+    background-color: var(--pinkish-cinnamon);
+    color: var(--black);
+  }  
+}

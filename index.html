@@ -3,6 +3,7 @@
   <head>
     <meta charset='UTF-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='refresh' content='3600'>
 
     <title>Weather</title>
     <link rel='stylesheet' href='style/reset.css'>
@@ -15,7 +16,7 @@
     <link href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap' rel='stylesheet'>
   </head>
-  <body class='combo-21'>
+  <body class='combo-206'>
     <div id='forecast-container' class='flex-row flex-gap-2'></div>
 
     <template id='hourly-card-template'>
@@ -74,7 +75,9 @@
       const lon = urlParams.get('lon');
       const container = document.getElementById('forecast-container');
       const template = document.getElementById('hourly-card-template');
-      const styles = ['combo-152', 'combo-149', 'combo-188', 'combo-21'];
+      const styles = [
+        'combo-21', 'combo-88', 'combo-149', 'combo-152', 'combo-188', 'combo-206',
+      ];
       var styleIndex = 0, minuteCount = 0;
 
       function populate(hourlyData) {  
@@ -109,7 +112,7 @@
       function update() {
         /* Change the style every few minutes. */
         minuteCount ++;
-        if (minuteCount > 9) {
+        if (minuteCount > 5) {
           minuteCount = 0;
           styleIndex = (styleIndex + 1) % styles.length;
           document.body.className = styles[styleIndex];
