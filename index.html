@@ -72,6 +72,7 @@
       const urlParams = new URLSearchParams(window.location.search);
       const lat = urlParams.get('lat');
       const lon = urlParams.get('lon');
+      const colsParam = urlParams.get('cols');
       const container = document.getElementById('forecast-container');
       const template = document.getElementById('hourly-card-template');
       const styles = [
@@ -85,11 +86,11 @@
 
         // Create a fragment to batch DOM updates for speed
         const fragment = document.createDocumentFragment();
-        var dayCount = 6;
+        var columns = colsParam ? colsParam : 6;
 
         hourlyData.forEach(item => {
-          dayCount --;
-          if (dayCount >= 0) {
+          columns --;
+          if (columns >= 0) {
             const clone = template.content.cloneNode(true);
             setVariableWeight(qs(clone, '.cloud-high'), item.cloud_high, 10, 50, '%');
             setVariableWeight(qs(clone, '.cloud-mid'), item.cloud_mid, 10, 50, '%');
